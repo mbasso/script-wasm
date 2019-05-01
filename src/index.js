@@ -11,11 +11,11 @@ const fetchWasmScript = (request) => {
     const code = document.currentScript.dataset.import || '{}';
     const importObject = eval('(' + code + ')');
 
-    if (WebAssembly.instantiateStreaming !== undefined) {
+    if (typeof WebAssembly.instantiateStreaming === 'function') {
       res = WebAssembly.instantiateStreaming(res, importObject);
     } else {
       res = (
-        WebAssembly.compileStreaming !== undefined
+        typeof WebAssembly.compileStreaming === 'function'
           ? WebAssembly.compileStreaming(res)
           : res.then(response => response.arrayBuffer())
               .then(buff => WebAssembly.compile(buff))

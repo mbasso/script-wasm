@@ -25,7 +25,7 @@ Once you have installed script-wasm, supposing a CommonJS environment, in yuor s
 ```js
 import fetchWasmScript from 'script-wasm';
 // if you prefer, you can import it using a CDN instead
-// self.importScripts('https://unpkg.com/script-wasm@0.1.0/dist/script-wasm.min.js')
+// self.importScripts('https://unpkg.com/script-wasm@0.1.1/dist/script-wasm.min.js')
 
 self.addEventListener('fetch', (event) => {
   const newResponse = fetchWasmScript(event.request);
